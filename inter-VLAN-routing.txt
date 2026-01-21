@@ -1,0 +1,31 @@
+hostname SW01
+vlan 10
+name HR
+vlan 20
+name CSI
+interface range f0/1-12
+switchport mode access
+switchport access vlan 10
+interface range f0/13-24
+switchport mode access
+switchport access vlan 20
+interface g0/1
+switchport mode trunk
+switchport trunk encapsulation dot1q
+ip routing
+interface vlan 10
+no shutdown
+ip address 192.168.10.1 255.255.255.0
+interface vlan 20
+no shutdown
+ip address 192.168.20.1 255.255.255.0
+
+
+// Switch Security
+
+enable secret cisco
+lin console 0
+password ccna
+login
+exit
+service password-encryption
