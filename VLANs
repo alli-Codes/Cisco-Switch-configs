@@ -1,0 +1,16 @@
+interface fa0/2
+switchport mode access
+switchport access vlan 1
+do write
+end
+
+interface fa0/3
+switchport mode access
+switchport access vlan 2
+do write
+end
+
+interface fa0/1
+switchport mode trunk
+do write
+end
