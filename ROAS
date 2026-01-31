@@ -1,0 +1,34 @@
+interface fa0/1
+switchport mode access
+switchport acces vlan 13
+
+interface fa0/2
+switchport mode access
+switchport access vlan 24
+
+do write
+end
+
+//SW1 and SW2
+interface g0/1
+switchport mode trunk
+
+//SW1
+interface g0//2
+switchport mode trunk
+
+//Router config for ROAS
+interface g0/0/0.13
+encapsulation dot1q 13
+ip address 10.0.0.1 255.255.255.128
+
+interface g0/0/0.24
+encapsulation dot1q 24
+ip address 10.0.0.129 255.255.255.128
+
+interface g0/0/0
+no shutdown
+do write
+end
+
+
